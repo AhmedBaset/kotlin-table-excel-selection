@@ -13,4 +13,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "typing-speed"
+rootProject.name = "table-multi-select"

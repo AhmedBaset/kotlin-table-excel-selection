@@ -28,8 +28,8 @@ compose.desktop {
         mainClass = "MainKt"
 
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "typing-speed"
+            targetFormats(TargetFormat.Deb, TargetFormat.Exe, TargetFormat.Dmg, TargetFormat.Msi)
+            packageName = "table-multi-select"
             packageVersion = "1.0.0"
         }
     }
