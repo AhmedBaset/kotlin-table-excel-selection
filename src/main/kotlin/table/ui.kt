@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.key.key
@@ -27,9 +26,8 @@ import common.isCopyPressed
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun Table() {
-   var isSelecting by remember { mutableStateOf(false) }
-
-   val offset = remember { mutableStateOf(Offset(0f, 0f)) }
+   // var isSelecting by remember { mutableStateOf(false) }
+   // val offset = remember { mutableStateOf(Offset(0f, 0f)) }
 
    var startCell by remember { mutableStateOf<Pair<Int, Int>?>(null) }
    var endCell by remember { mutableStateOf<Pair<Int, Int>?>(null) }
@@ -48,8 +46,6 @@ fun Table() {
          right = maxOf(startBounds.right, endBounds.right),
          bottom = maxOf(startBounds.bottom, endBounds.bottom),
       )
-
-      println()
 
       return@remember cellsBounds.filter { (_, bounds) ->
          selectionRect.overlaps(
@@ -80,7 +76,8 @@ fun Table() {
       horizontalAlignment = Alignment.CenterHorizontally
    ) {
       OutlinedTextField(
-         value = offset.value.toString(),
+         // value = offset.value.toString(),
+         value = "",
          onValueChange = {},
          modifier = Modifier.fillMaxWidth(),
       )
@@ -89,7 +86,7 @@ fun Table() {
 
       Column(Modifier.padding(16.dp).border(16.dp, Color(0x02A8FF))
          .onPointerEvent(PointerEventType.Exit) {
-            if (isSelecting) isSelecting = false
+            // if (isSelecting) isSelecting = false
          }) {
 
          data.forEach { cells ->
